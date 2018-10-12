@@ -267,7 +267,7 @@ protected:
 
   /** Initialize the state of filter and equation before each iteration.
    * Progress feedback is implemented as part of this method. */
-  void InitializeIteration() override;
+  void InitializeIteration();
 
   /** Apply update. */
   void ApplyUpdate( const TimeStepType& dt ) override;
