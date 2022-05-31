@@ -20,17 +20,17 @@ ITKVariationalRegistration
 Overview
 --------
 
-This is a module for the `Insight Toolkit (ITK) <http://itk.org>`_ that
+This is a module for the `Insight Toolkit (ITK) <https://itk.org>`_ that
 provides a fexible framework for deformable registration of two images using
 PDE-based variational registration.
 
-For more information, see the `Insight Journal article <http://hdl.handle.net/10380/3460>`_::
+For more information, see the `Insight Journal article <https://hdl.handle.net/10380/3460>`_::
 
    Schmidt-Richberg A., Werner R., Handels H., Ehrhardt J.
    A Flexible Variational Registration Framework
    The Insight Journal. January-December. 2014.
-   http://hdl.handle.net/10380/3460
-   http://www.insight-journal.org/browse/publication/917
+   https://hdl.handle.net/10380/3460
+   https://www.insight-journal.org/browse/publication/917
 
 This work was motivated by the following publication::
 

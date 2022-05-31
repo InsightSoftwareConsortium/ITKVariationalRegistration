@@ -26,7 +26,7 @@ setup(
                      'Please refer to:\n'
                      'Schmidt-Richberg A., Werner R., Handels H., Ehrhardt J., '
                      '"A Flexible Variational Registration Framework", '
-                     'Insight Journal, http://hdl.handle.net/10380/3460, 2014.',
+                     'Insight Journal, https://hdl.handle.net/10380/3460, 2014.',
     classifiers=[
         "License :: OSI Approved :: Apache Software License",
         "Programming Language :: Python",
