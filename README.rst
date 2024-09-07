@@ -1,20 +1,13 @@
 ITKVariationalRegistration
 ==========================
 
-.. |CircleCI| image:: https://circleci.com/gh/InsightSoftwareConsortium/ITKVariationalRegistration.svg?style=shield
-    :target: https://circleci.com/gh/InsightSoftwareConsortium/ITKVariationalRegistration
+.. image:: https://github.com/InsightSoftwareConsortium/ITKVariationalRegistration/actions/workflows/build-test-package.yml/badge.svg
+    :target: https://github.com/InsightSoftwareConsortium/ITKVariationalRegistration/actions/workflows/build-test-package.yml
+    :alt: Build Status
 
-.. |TravisCI| image:: https://travis-ci.org/InsightSoftwareConsortium/ITKVariationalRegistration.svg?branch=master
-    :target: https://travis-ci.org/InsightSoftwareConsortium/ITKVariationalRegistration
-
-.. |AppVeyor| image:: https://img.shields.io/appveyor/ci/itkrobot/itkvariationalregistration.svg
-    :target: https://ci.appveyor.com/project/itkrobot/itkvariationalregistration
-
-=========== =========== ===========
-   Linux      macOS       Windows
-=========== =========== ===========
-|CircleCI|  |TravisCI|  |AppVeyor|
-=========== =========== ===========
+.. image:: https://img.shields.io/badge/License-Apache%202.0-blue.svg
+    :target: https://github.com/InsightSoftwareConsortium/ITKVariationalRegistration/blob/master/LICENSE
+    :alt: License
 
 
 Overview
