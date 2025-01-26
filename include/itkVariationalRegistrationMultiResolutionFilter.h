@@ -119,7 +119,7 @@ public:
   using MaskImageConstPointer = typename MaskImageType::ConstPointer;
 
   /** Internal float image type. */
-  using FloatImageType = Image<TRealType, itkGetStaticConstMacro(ImageDimension)>;
+  using FloatImageType = Image<TRealType, Self::ImageDimension>;
 
   /** The internal registration type. */
   using RegistrationType = VariationalRegistrationFilter<FixedImageType, MovingImageType, DisplacementFieldType>;
