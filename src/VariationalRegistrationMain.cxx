@@ -50,8 +50,8 @@ extern "C"
 #include "getopt.h"
 }
 
-#define ExceptionMacro(x)                                                                                              \
-  std::cerr << "ERROR: " x << std::endl;                                                                               \
+#define ExceptionMacro(x)                \
+  std::cerr << "ERROR: " x << std::endl; \
   return EXIT_FAILURE;
 
 // Project includes:
