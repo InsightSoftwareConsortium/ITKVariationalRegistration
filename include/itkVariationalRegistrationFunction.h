@@ -19,7 +19,7 @@
 #define itkVariationalRegistrationFunction_h
 
 #include "itkFiniteDifferenceFunction.h"
-//#include "itkWarpImageFilter.h"
+// #include "itkWarpImageFilter.h"
 #include "itkContinuousBorderWarpImageFilter.h"
 #include <mutex>
 

@@ -90,7 +90,7 @@ protected:
 
   /** Initialize the filter. */
   virtual void
-  Initialize(){};
+  Initialize() {};
 
 private:
   /** A boolean that indicates, if image spacing is considered. */
