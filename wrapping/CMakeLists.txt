@@ -2,7 +2,7 @@ itk_wrap_module(VariationalRegistration)
 
 set(WRAPPER_SUBMODULE_ORDER
    itkContinuousBorderWarpImageFilter
-   itkVariationalDiffeomophicRegistrationFilter
+   itkVariationalDiffeomorphicRegistrationFilter
    itkVariationalRegistrationCurvatureRegularizer
    itkVariationalRegistrationDemonsFunction
    itkVariationalRegistrationDiffusionRegularizer
@@ -16,7 +16,7 @@ set(WRAPPER_SUBMODULE_ORDER
    itkVariationalRegistrationRegularizer
    itkVariationalRegistrationSSDFunction
    itkVariationalRegistrationStopCriterion
-   itkVariationalSymmetricDiffeomophicRegistrationFilter)
+   itkVariationalSymmetricDiffeomorphicRegistrationFilter)
 
 itk_auto_load_submodules()
 itk_end_wrap_module()

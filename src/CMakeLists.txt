@@ -1,3 +1,4 @@
+include_directories("${VariationalRegistration_SOURCE_DIR}/include")
 include_directories("${VariationalRegistration_SOURCE_DIR}/src")
 
 # Test if ITK is built with FFTW. FFTWD is recommended and required for the

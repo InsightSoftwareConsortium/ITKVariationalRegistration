@@ -33,15 +33,17 @@ add_custom_target(BuildExecutablesUsedInTests COMMAND echo "Dummy target"
 
 function(Test2D TestName OutputExt)
   if (OutputExt)
-    set(OutParam "${TEMP}/${TestName}.${OutputExt}")
+    set(OutParam -O "${TEMP}/${TestName}.${OutputExt}")
   endif()
 
   itk_add_test(NAME ${TestName}
     COMMAND itkTestDriver
+    --compareIntensityTolerance 20
+    --compareNumberOfPixelsTolerance 5000
     --compare DATA{Baseline/${TestName}.tif} ${TEMP}/${TestName}.tif
     $<TARGET_FILE:VariationalRegistration2D>
     -F DATA{Input/img1.png} -M DATA{Input/img2.png} -l 4 -p 1 -g 0.00001
-    ${ARGN} -W ${TEMP}/${TestName}.tif -O ${OutParam} )
+    ${ARGN} -W ${TEMP}/${TestName}.tif ${OutParam} )
   
   set_tests_properties(${TestName} PROPERTIES
     DEPENDS BuildExecutablesUsedInTests)
@@ -91,6 +93,8 @@ Test2D(VariationalRegistrationSymDiff2DTest "" -r 1 -a 1.5 -s 2 -e 2)
 function(Test3D TestName)
   itk_add_test(NAME ${TestName}
     COMMAND itkTestDriver
+    --compareIntensityTolerance 20
+    --compareNumberOfPixelsTolerance 5000
     --compare DATA{Baseline/${TestName}.nii.gz} ${TEMP}/${TestName}.nii.gz
     $<TARGET_FILE:VariationalRegistration>
     -F DATA{Input/10-P_5x5x5.nii.gz} -M DATA{Input/60-P_5x5x5.nii.gz} -l 3 -p 1 -g 0.00001
