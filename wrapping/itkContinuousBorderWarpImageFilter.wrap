@@ -1,5 +1,8 @@
 itk_wrap_class("itk::ContinuousBorderWarpImageFilter" POINTER)
-  foreach(s ${WRAP_ITK_SCALAR})
-    itk_wrap_image_filter_combinations("${s}" "${s}" "${WRAP_ITK_VECTOR_REAL}" 2+)
+  foreach(d ${ITK_WRAP_IMAGE_DIMS})
+    foreach(t ${WRAP_ITK_REAL})
+      itk_wrap_template("${ITKM_I${t}${d}}${ITKM_I${t}${d}}${ITKM_IVF${d}${d}}"
+                        "${ITKT_I${t}${d}},${ITKT_I${t}${d}},${ITKT_IVF${d}${d}}")
+    endforeach()
   endforeach()
 itk_end_wrap_class()

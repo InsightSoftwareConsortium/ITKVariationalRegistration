@@ -1,3 +1,10 @@
 itk_wrap_class("itk::VariationalRegistrationMultiResolutionFilter" POINTER)
-  itk_wrap_image_filter("${WRAP_ITK_SCALAR}" 2)
+  # template <TFixedImage, TMovingImage, TDisplacementField, TRealType=float>
+  # TRealType defaults to float, so wrap with 3 explicit params
+  foreach(d ${ITK_WRAP_IMAGE_DIMS})
+    foreach(t ${WRAP_ITK_REAL})
+      itk_wrap_template("${ITKM_I${t}${d}}${ITKM_I${t}${d}}${ITKM_IVF${d}${d}}"
+                        "${ITKT_I${t}${d}},${ITKT_I${t}${d}},${ITKT_IVF${d}${d}}")
+    endforeach()
+  endforeach()
 itk_end_wrap_class()

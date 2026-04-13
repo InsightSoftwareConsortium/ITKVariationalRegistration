@@ -640,7 +640,8 @@ main(int argc, char * argv[])
   FunctionType::Pointer function;
   switch (forceType)
   {
-    case 0: {
+    case 0:
+    {
       DemonsFunctionType::Pointer demonsFunction = DemonsFunctionType::New();
       switch (forceDomain)
       {
@@ -658,7 +659,8 @@ main(int argc, char * argv[])
       function = demonsFunction;
     }
     break;
-    case 1: {
+    case 1:
+    {
       SSDFunctionType::Pointer ssdFunction = SSDFunctionType::New();
       switch (forceDomain)
       {
@@ -676,7 +678,8 @@ main(int argc, char * argv[])
       function = ssdFunction;
     }
     break;
-    case 2: {
+    case 2:
+    {
       NCCFunctionType::Pointer    nccFunction = NCCFunctionType::New();
       NCCFunctionType::RadiusType r;
       for (unsigned int dim = 0; dim < NCCFunctionType::ImageDimension; dim++)
@@ -719,19 +722,22 @@ main(int argc, char * argv[])
   RegularizerType::Pointer regularizer;
   switch (regularizerType)
   {
-    case 0: {
+    case 0:
+    {
       GaussianRegularizerType::Pointer gaussRegularizer = GaussianRegularizerType::New();
       gaussRegularizer->SetStandardDeviations(std::sqrt(regulVar));
       regularizer = gaussRegularizer;
     }
     break;
-    case 1: {
+    case 1:
+    {
       DiffusionRegularizerType::Pointer diffRegularizer = DiffusionRegularizerType::New();
       diffRegularizer->SetAlpha(regulAlpha);
       regularizer = diffRegularizer;
     }
     break;
-    case 2: {
+    case 2:
+    {
 #if defined(ITK_USE_FFTWD) || defined(ITK_USE_FFTWF)
       ElasticRegularizerType::Pointer elasticRegularizer = ElasticRegularizerType::New();
       elasticRegularizer->SetMu(regulMu);
@@ -742,7 +748,8 @@ main(int argc, char * argv[])
 #endif
     }
     break;
-    case 3: {
+    case 3:
+    {
 #if defined(ITK_USE_FFTWD) || defined(ITK_USE_FFTWF)
       CurvatureRegularizerType::Pointer curvatureRegularizer = CurvatureRegularizerType::New();
       curvatureRegularizer->SetAlpha(regulAlpha);
@@ -768,17 +775,20 @@ main(int argc, char * argv[])
   RegistrationFilterType::Pointer regFilter;
   switch (searchSpace)
   {
-    case 0: {
+    case 0:
+    {
       regFilter = RegistrationFilterType::New();
       break;
     }
-    case 1: {
+    case 1:
+    {
       DiffeomorphicRegistrationFilterType::Pointer diffeoRegFilter = DiffeomorphicRegistrationFilterType::New();
       diffeoRegFilter->SetNumberOfExponentiatorIterations(numberOfExponentiatorIterations);
       regFilter = diffeoRegFilter;
       break;
     }
-    case 2: {
+    case 2:
+    {
       SymmetricDiffeomorphicRegistrationFilterType::Pointer symmDiffeoRegFilter =
         SymmetricDiffeomorphicRegistrationFilterType::New();
       symmDiffeoRegFilter->SetNumberOfExponentiatorIterations(numberOfExponentiatorIterations);

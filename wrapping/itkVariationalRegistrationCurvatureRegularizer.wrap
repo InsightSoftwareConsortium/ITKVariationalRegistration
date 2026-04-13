@@ -1,7 +1,14 @@
-itk_wrap_class("itk::VariationalRegistrationCurvatureRegularizer" POINTER)
-#  itk_wrap_image_filter("${WRAP_ITK_USIGN_INT}" 2)
-#  itk_wrap_image_filter("${WRAP_ITK_SIGN_INT}" 2)
-  itk_wrap_image_filter("${WRAP_ITK_REAL}" 2)
-  itk_wrap_image_filter("${WRAP_ITK_VECTOR_REAL}" 2)
-  itk_wrap_image_filter("${WRAP_ITK_COV_VECTOR_REAL}" 2)
-itk_end_wrap_class()
+# The CurvatureRegularizer class itself is gated on ITK_USE_FFTWD/ITK_USE_FFTWF
+# in itkVariationalRegistrationCurvatureRegularizer.h. When ITK is built
+# without FFTW (e.g. the Python wheel builds), the class does not exist and
+# castxml fails with "no template named 'VariationalRegistrationCurvatureRegularizer'".
+# Only generate the wrapping when FFTW is present.
+if(ITK_USE_FFTWD OR ITK_USE_FFTWF)
+  itk_wrap_class("itk::VariationalRegistrationCurvatureRegularizer" POINTER)
+    # Single template parameter: TDisplacementField = Image<Vector<float,D>,D>
+    foreach(d ${ITK_WRAP_IMAGE_DIMS})
+      itk_wrap_template("${ITKM_IVF${d}${d}}"
+                        "${ITKT_IVF${d}${d}}")
+    endforeach()
+  itk_end_wrap_class()
+endif()
