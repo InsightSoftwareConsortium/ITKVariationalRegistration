@@ -117,7 +117,9 @@ if(ITK_USE_FFTWF OR ITK_USE_FFTWD)
   Test3D(VariationalRegistrationElastic3DTest -r 2 -m 0.25 -b 0.25)
 
   # Active Thirion forces and curvature regularization
-  Test3D(VariationalRegistrationCurvature3DTest -r 3 -a 1)
+  # Disabled: baseline VariationalRegistrationCurvature3DTest.nii.gz is
+  # orphaned (404 from gh-pages, Girder, and itk.org).
+  # Test3D(VariationalRegistrationCurvature3DTest -r 3 -a 1)
 endif()
 
 # SSD forces and gaussian smoothing
