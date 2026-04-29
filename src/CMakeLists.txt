@@ -1,3 +1,4 @@
+include_directories("${VariationalRegistration_SOURCE_DIR}/include")
 include_directories("${VariationalRegistration_SOURCE_DIR}/src")
 
 # Test if ITK is built with FFTW. FFTWD is recommended and required for the
@@ -23,9 +24,9 @@ if(WIN32) # Check if we are on Windows
 endif()
 
 add_executable(VariationalRegistration ${VariationalRegistration_SRC})
-target_link_libraries(VariationalRegistration ${VariationalRegistration_LIBRARIES})
+target_link_libraries(VariationalRegistration ${VariationalRegistration_LIBRARIES} ${ITK_LIBRARIES})
 
 add_executable(VariationalRegistration2D ${VariationalRegistration_SRC})
-target_link_libraries(VariationalRegistration2D ${VariationalRegistration_LIBRARIES})
+target_link_libraries(VariationalRegistration2D ${VariationalRegistration_LIBRARIES} ${ITK_LIBRARIES})
 set_target_properties(VariationalRegistration2D PROPERTIES COMPILE_FLAGS -DUSE_2D_IMPL)
 

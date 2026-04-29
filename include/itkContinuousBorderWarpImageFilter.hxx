@@ -17,7 +17,6 @@
  *=========================================================================*/
 #ifndef itkContinuousBorderWarpImageFilter_hxx
 #define itkContinuousBorderWarpImageFilter_hxx
-#include "itkContinuousBorderWarpImageFilter.h"
 
 namespace itk
 {
@@ -71,8 +70,10 @@ ContinuousBorderWarpImageFilter<TInputImage, TOutputImage, TDisplacementField>::
         point[j] += displacement[j];
       }
 
-      // project point into image region
-      inputPtr->TransformPhysicalPointToContinuousIndex(point, contIndex);
+      // project point into image region (out-of-bounds is expected;
+      // the clamping below provides continuous-border behavior)
+      contIndex =
+        inputPtr->template TransformPhysicalPointToContinuousIndex<typename ContinuousIndexType::ValueType>(point);
 
       for (unsigned int j = 0; j < ImageDimension; j++)
       {

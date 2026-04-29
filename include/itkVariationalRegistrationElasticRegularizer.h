@@ -71,7 +71,7 @@ public:
   itkNewMacro(Self);
 
   /** Run-time type information (and related methods) */
-  itkTypeMacro(VariationalRegistrationElasticRegularizer, VariationalRegistrationRegularizer);
+  itkOverrideGetNameOfClassMacro(VariationalRegistrationElasticRegularizer);
 
   /** Dimensionality of input and output data is assumed to be the same. */
   static constexpr unsigned int ImageDimension = TDisplacementField::ImageDimension;
@@ -189,9 +189,9 @@ private:
   typename FFTWProxyType::PlanType m_PlanForward[ImageDimension];  /** FFT forward plan  */
   typename FFTWProxyType::PlanType m_PlanBackward[ImageDimension]; /** FFT backward plan */
   typename FFTWProxyType::ComplexType *
-                                      m_ComplexBuffer[ImageDimension]; /** memory space for output of forward and input of backward FFT*/
-  typename FFTWProxyType::PixelType * m_InputBuffer;                   /** FFT memory space for input data */
-  typename FFTWProxyType::PixelType * m_OutputBuffer;                  /** FFT memory space for output data */
+    m_ComplexBuffer[ImageDimension];                  /** memory space for output of forward and input of backward FFT*/
+  typename FFTWProxyType::PixelType * m_InputBuffer;  /** FFT memory space for input data */
+  typename FFTWProxyType::PixelType * m_OutputBuffer; /** FFT memory space for output data */
 
   struct ElasticFFTThreadStruct
   {

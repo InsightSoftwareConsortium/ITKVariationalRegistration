@@ -1,5 +1,13 @@
 itk_wrap_class("itk::VariationalRegistrationStopCriterion" POINTER)
-#  itk_wrap_image_filter("${WRAP_ITK_USIGN_INT}" 2)
-#  itk_wrap_image_filter("${WRAP_ITK_SIGN_INT}" 2)
-  itk_wrap_image_filter("${WRAP_ITK_REAL}" 2)
+  # template <TRegistrationFilter, TMRFilter>
+  # TRegistrationFilter = VariationalRegistrationFilter<IF,IF,IVF>
+  # TMRFilter = VariationalRegistrationMultiResolutionFilter<IF,IF,IVF>
+  foreach(d ${ITK_WRAP_IMAGE_DIMS})
+    foreach(t ${WRAP_ITK_REAL})
+      set(_reg "itk::VariationalRegistrationFilter< ${ITKT_I${t}${d}}, ${ITKT_I${t}${d}}, ${ITKT_IVF${d}${d}} >")
+      set(_mr  "itk::VariationalRegistrationMultiResolutionFilter< ${ITKT_I${t}${d}}, ${ITKT_I${t}${d}}, ${ITKT_IVF${d}${d}} >")
+      itk_wrap_template("VRF${ITKM_I${t}${d}}${ITKM_I${t}${d}}${ITKM_IVF${d}${d}}VRMRF${ITKM_I${t}${d}}${ITKM_I${t}${d}}${ITKM_IVF${d}${d}}"
+                        "${_reg},${_mr}")
+    endforeach()
+  endforeach()
 itk_end_wrap_class()

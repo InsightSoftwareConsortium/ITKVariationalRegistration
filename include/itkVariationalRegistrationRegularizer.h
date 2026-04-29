@@ -59,7 +59,7 @@ public:
   itkNewMacro(Self);
 
   /** Run-time type information (and related methods) */
-  itkTypeMacro(VariationalRegistrationRegularizer, InPlaceImageFilter);
+  itkOverrideGetNameOfClassMacro(VariationalRegistrationRegularizer);
 
   static constexpr unsigned int ImageDimension = TDisplacementField::ImageDimension;
 
@@ -90,7 +90,7 @@ protected:
 
   /** Initialize the filter. */
   virtual void
-  Initialize(){};
+  Initialize() {};
 
 private:
   /** A boolean that indicates, if image spacing is considered. */

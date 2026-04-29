@@ -59,7 +59,9 @@ char * optarg;  /* argument associated with option */
  * getopt --
  *	Parse argc/argv argument vector.
  */
-int            getopt(nargc, nargv, ostr) int nargc;
+int
+               getopt(nargc, nargv, ostr)
+int            nargc;
 char * const * nargv;
 const char *   ostr;
 {

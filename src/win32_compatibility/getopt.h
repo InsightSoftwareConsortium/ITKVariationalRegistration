@@ -43,8 +43,8 @@
 #ifdef _WIN32
 /* from <sys/cdefs.h> */
 #  ifdef __cplusplus
-#    define __BEGIN_DECLS                                                                                              \
-      extern "C"                                                                                                       \
+#    define __BEGIN_DECLS \
+      extern "C"          \
       {
 #    define __END_DECLS }
 #  else
